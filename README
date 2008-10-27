@@ -1,0 +1,16 @@
+fibmapsort - sorts a list of files according to their first block
+
+fibmapsort sorts a list of files according to the number of their first block.
+This is usually a good approximation of sorting the list of files according to
+their position in the media, which reduces seek time. It is very useful when
+reading from optical media.
+
+To obtain the number of the first block, it uses the FIBMAP ioctl (thus the
+name fibmapsort). This means it will only work when run as root.
+
+Sample usage:
+	find . -type f -print0 | fibmapsort -0 | xargs -0 md5sum
+
+Command line arguments:
+	-0	uses the NUL character as the delimiter instead of newline
+	-b	prints the number of the first block for each file
