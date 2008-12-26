@@ -23,6 +23,7 @@
 #include <sstream>
 #include <exception>
 #include <cerrno>
+#include <cstring>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
